@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
@@ -19,6 +20,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-react": "^7.29.4",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.23"
   },
