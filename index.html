@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send ETH</title>
+  <link href="src/beer.png" rel="shortcut icon">
+  <link rel="stylesheet" href="src/style.min.css"></link>
+</head>
+<body class="h-screen flex items-center dark:bg-slate-800">
+  <div class="container mx-auto">
+    <div class="flex justify-center">
+      <figure class="w-96 flex flex-col text-center bg-slate-200 text-slate-600 rounded-xl px-16 py-16">
+        <div class="mb-6">
+          <img id="avatar" class="w-36 h-36 rounded-full mx-auto" src="https://github.githubassets.com/images/mona-loading-dark.gif" alt="me">
+        </div>
+        <div class="tracking-wider text-lg mb-6">
+          Buy <span id="username" class="text-slate-800 font-bold">me</span> a Beer
+        </div>
+        <div class="mt-4 mb-12">
+          <div class="flex flex-row">
+            <img class="w-8 h-8 mx-auto" src="src/beer.png" alt="beer">
+            <button id="minus" class="bg-slate-200 text-slate-400 hover:bg-slate-300 hover:text-slate-500 w-12 rounded-l cursor-pointer">
+              <span class="m-auto text-2xl font-light">-</span>
+            </button>
+            <input id="count" type="number" class="bg-slate-200 hover:bg-slate-300 w-12 text-center outline-none" value="1" min="1" max="100"></input>
+            <button id="plus" class="bg-slate-200 text-slate-400 hover:bg-slate-300 hover:text-slate-500 w-12 rounded-r cursor-pointer">
+              <span class="m-auto text-2xl font-light">+</span>
+            </button>
+          </div>
+        </div>
+        <div id="rate" class="text-xs text-slate-600 mb-6">
+          &nbsp;
+        </div>
+        <button id="send" class="btn btn-gradient mb-6">Send ETH</button>
+        <div id="message" class="text-xs text-slate-600">
+          &nbsp;
+        </div>
+      </figure>
+    </div>
+  </div>
+  <script src="src/app.js"></script>
+</body>
+</html>
