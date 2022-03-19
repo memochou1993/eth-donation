@@ -1,7 +1,16 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
+import useError from './hooks/useError';
 import beer from './beer.png';
 import './App.css';
+import {
+  CURRENCY,
+  BEER_PRICE,
+  MIN_COUNT,
+  MAX_COUNT,
+  GAS_LIMIT,
+  GAS_PRICE,
+} from './constants';
 
 const {
   REACT_APP_COINBASE_API_URL,
@@ -10,23 +19,16 @@ const {
   REACT_APP_GITHUB_USERNAME,
 } = process.env;
 
-const CURRENCY = 'TWD';
-const BEER_PRICE = 100;
-const MIN_COUNT = 1;
-const MAX_COUNT = 100;
-const GAS_LIMIT = 30000;
-const GAS_PRICE = 1500000000;
-
 const { ethereum } = window;
 
 function App() {
+  const [error, setError] = useError('');
   const [rates, setRates] = useState([]);
   const [count, setCount] = useState('1');
-  const [error, setError] = useState('');
   const [txHash, setTxHash] = useState('');
 
-  const amount = () => BEER_PRICE * Number(count);
-  const wei = () => Math.round(((amount() / Number(rates[CURRENCY])) * 10 ** 18));
+  const amount = useMemo(() => BEER_PRICE * Number(count), [count]);
+  const wei = useMemo(() => Math.round(((amount / Number(rates[CURRENCY])) * 10 ** 18)), [rates, amount]);
 
   const fetchRates = () => new Promise((res, rej) => {
     axios.get(`${REACT_APP_COINBASE_API_URL}/exchange-rates`, { params: { currency: 'ETH' } })
@@ -76,7 +78,7 @@ function App() {
             to: REACT_APP_WALLET_ADDRESS,
             gas: GAS_LIMIT.toString(16),
             gasPrice: GAS_PRICE.toString(16),
-            value: wei().toString(16),
+            value: wei.toString(16),
           },
         ],
       });
@@ -85,36 +87,6 @@ function App() {
     } catch (e) {
       setError(e.message);
     }
-  };
-
-  // FIXME
-  const Message = () => {
-    if (!ethereum) {
-      return (
-        <>
-          <a target="_blank" href="https://metamask.io/download/" rel="noopener noreferrer">MetaMask</a>
-          {' '}
-          is not installed.
-        </>
-      );
-    }
-    if (error) {
-      return `${error}`;
-    }
-    if (txHash) {
-      return (
-        <>
-          Transaction Hash:
-          {' '}
-          <a target="_blank" href={`${REACT_APP_ETHERSCAN_URL}/tx/${txHash}`} rel="noopener noreferrer">
-            {txHash.substring(0, 5)}
-            ...
-            {txHash.substring(txHash.length - 4)}
-          </a>
-        </>
-      );
-    }
-    return <>&nbsp;</>;
   };
 
   return (
@@ -145,11 +117,29 @@ function App() {
               </div>
             </div>
             <div className="text-xs text-slate-600 mb-6">
-              { `${amount().toLocaleString()} ${CURRENCY} ≈ ${(wei() / 10 ** 18).toFixed(9)} ETH` }
+              {`${amount.toLocaleString()} ${CURRENCY} ≈ ${(wei / 10 ** 18).toFixed(9)} ETH`}
             </div>
             <button type="button" className="btn btn-gradient mb-6" onClick={onSend}>Send ETH</button>
             <div className="text-xs text-slate-600">
-              <Message />
+              {!ethereum && (
+                <>
+                  <a target="_blank" href="https://metamask.io/download/" rel="noopener noreferrer">MetaMask</a>
+                  {' '}
+                  is not installed.
+                </>
+              )}
+              {error}
+              {txHash && (
+                <>
+                  Transaction Hash:
+                  {' '}
+                  <a target="_blank" href={`${REACT_APP_ETHERSCAN_URL}/tx/${txHash}`} rel="noopener noreferrer">
+                    {txHash.substring(0, 5)}
+                    ...
+                    {txHash.substring(txHash.length - 4)}
+                  </a>
+                </>
+              )}
             </div>
           </figure>
         </div>
