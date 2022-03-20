@@ -90,7 +90,7 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex items-center dark:bg-slate-800">
+    <div className="h-screen flex items-center dark:bg-slate-200 md:dark:bg-slate-800">
       <div className="container mx-auto">
         <div className="flex justify-center">
           <figure className="w-96 flex flex-col text-center bg-slate-200 text-slate-600 rounded-xl px-16 py-16">
