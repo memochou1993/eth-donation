@@ -66,6 +66,10 @@ function App() {
   };
 
   const onSend = async () => {
+    if (navigator.userAgentData.mobile) {
+      window.location = `https://metamask.app.link/sned/${REACT_APP_WALLET_ADDRESS}@1?value=${wei.toExponential()}`;
+      return;
+    }
     try {
       const [from] = await ethereum.request({
         method: 'eth_requestAccounts',
