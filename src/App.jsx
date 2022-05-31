@@ -90,36 +90,36 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex items-center dark:bg-slate-200 md:dark:bg-slate-800">
+    <div className="flex items-center h-screen dark:bg-slate-200 md:dark:bg-slate-800">
       <div className="container mx-auto">
         <div className="flex justify-center">
-          <figure className="w-96 flex flex-col text-center bg-slate-200 text-slate-600 rounded-xl px-16 py-16">
+          <figure className="flex flex-col px-16 py-16 text-center w-96 bg-slate-200 text-slate-600 rounded-xl">
             <div className="mb-6">
-              <img className="w-36 h-36 rounded-full mx-auto" src={`https://github.com/${REACT_APP_GITHUB_USERNAME}.png`} alt={REACT_APP_GITHUB_USERNAME} />
+              <img className="mx-auto rounded-full w-36 h-36" src={`https://github.com/${REACT_APP_GITHUB_USERNAME}.png`} alt={REACT_APP_GITHUB_USERNAME} />
             </div>
-            <div className="tracking-wider text-lg mb-6">
+            <div className="mb-6 text-lg tracking-wider">
               Buy
               {' '}
-              <span className="text-slate-800 font-bold">{REACT_APP_GITHUB_USERNAME}</span>
+              <span className="font-bold text-slate-800">{REACT_APP_GITHUB_USERNAME}</span>
               {' '}
               a Beer
             </div>
             <div className="mt-4 mb-12">
               <div className="flex flex-row">
                 <img className="w-8 h-8 mx-auto" src={beer} alt="beer" />
-                <button type="button" className="bg-slate-200 text-slate-400 hover:bg-slate-300 hover:text-slate-500 w-12 rounded-l cursor-pointer" onClick={onMinus}>
+                <button type="button" className="w-12 rounded-l cursor-pointer bg-slate-200 text-slate-400 hover:bg-slate-300 hover:text-slate-500" onClick={onMinus}>
                   <span className="m-auto text-2xl font-light">-</span>
                 </button>
-                <input type="number" className="bg-slate-200 hover:bg-slate-300 w-12 text-center outline-none" value={count} min="1" max="100" onChange={onInput} />
-                <button type="button" className="bg-slate-200 text-slate-400 hover:bg-slate-300 hover:text-slate-500 w-12 rounded-r cursor-pointer" onClick={onPlus}>
+                <input type="number" className="w-12 text-center outline-none bg-slate-200 hover:bg-slate-300" value={count} min="1" max="100" onChange={onInput} />
+                <button type="button" className="w-12 rounded-r cursor-pointer bg-slate-200 text-slate-400 hover:bg-slate-300 hover:text-slate-500" onClick={onPlus}>
                   <span className="m-auto text-2xl font-light">+</span>
                 </button>
               </div>
             </div>
-            <div className="text-xs text-slate-600 mb-6">
+            <div className="mb-6 text-xs text-slate-600">
               {`${amount.toLocaleString()} ${CURRENCY} ≈ ${(wei / 10 ** 18).toFixed(9)} ETH`}
             </div>
-            <button type="button" className="btn btn-gradient mb-6" onClick={onSend}>Send ETH</button>
+            <button type="button" className="mb-6 btn btn-gradient" onClick={onSend}>Donate ETH</button>
             <div className="text-xs text-slate-600">
               {!ethereum && (
                 <>
