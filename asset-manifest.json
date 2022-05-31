@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/eth-donation/static/css/main.53ac52c0.css",
-    "main.js": "/eth-donation/static/js/main.f163985f.js",
+    "main.js": "/eth-donation/static/js/main.d5df7ba1.js",
     "index.html": "/eth-donation/index.html",
     "main.53ac52c0.css.map": "/eth-donation/static/css/main.53ac52c0.css.map",
-    "main.f163985f.js.map": "/eth-donation/static/js/main.f163985f.js.map"
+    "main.d5df7ba1.js.map": "/eth-donation/static/js/main.d5df7ba1.js.map"
   },
   "entrypoints": [
     "static/css/main.53ac52c0.css",
-    "static/js/main.f163985f.js"
+    "static/js/main.d5df7ba1.js"
   ]
 }
