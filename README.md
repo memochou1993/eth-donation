@@ -1,6 +1,6 @@
 # eth-donation
 
-<a href="https://memochou1993.github.io/eth-donation/" target="_blank" rel="noopener noreferrer"><img width="100" src="https://img.shields.io/badge/donation-eth-blue" alt="eth-donation"></a>
+<a href="https://memochou1993.github.io/eth-donation/" target="_blank" rel="noopener noreferrer"><img width="100" src="https://img.shields.io/badge/donate-ETH-blue" alt="eth-donation"></a>
 
 ## Demo
 
