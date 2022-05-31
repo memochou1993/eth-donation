@@ -1,10 +1,10 @@
-# send-eth
+# eth-donation
 
-<a href="https://memochou1993.github.io/send-eth/" target="_blank" rel="noopener noreferrer"><img width="100" src="https://img.shields.io/badge/send-eth-blue" alt="send-eth"></a>
+<a href="https://memochou1993.github.io/eth-donation/" target="_blank" rel="noopener noreferrer"><img width="100" src="https://img.shields.io/badge/donation-eth-blue" alt="eth-donation"></a>
 
 ## Demo
 
-<a href="https://memochou1993.github.io/send-eth/" target="_blank" rel="noopener noreferrer"><img src="./screenshot.png" alt="send-eth"></a>
+<a href="https://memochou1993.github.io/eth-donation/" target="_blank" rel="noopener noreferrer"><img src="./screenshot.png" alt="eth-donation"></a>
 
 ## Development
 
@@ -35,7 +35,7 @@ Update `package.json`.
 
 ```JSON
 {
-  "homepage": "https://<your-github-username>.github.io/send-eth/"
+  "homepage": "https://<your-github-username>.github.io/eth-donation/"
 }
 ```
 
@@ -53,6 +53,6 @@ npm run deploy
 
 ## Contributors
 
-<a href="https://github.com/memochou1993/send-eth/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=memochou1993/send-eth" />
+<a href="https://github.com/memochou1993/eth-donation/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=memochou1993/eth-donation" />
 </a>

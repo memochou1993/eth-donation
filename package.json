@@ -1,7 +1,7 @@
 {
-  "name": "send-crypto",
+  "name": "eth-donation",
   "version": "0.1.0",
-  "homepage": "https://memochou1993.github.io/send-eth/",
+  "homepage": "https://memochou1993.github.io/eth-donation/",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
